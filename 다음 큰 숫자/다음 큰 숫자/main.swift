@@ -10,23 +10,13 @@ func toBinary(_ n: Int) -> String {
     return str
 }
 
-func findOne(_ str: String) -> Int {
-    var cnt: Int = 0
-    for s in str {
-        if s == "1" {
-            cnt += 1
-        }
-    }
-    return cnt
-}
-
 func solution(_ n:Int) -> Int
 {
-    var oneCnt : Int = findOne(toBinary(n))
     var answer = n + 1
-
+    var binaryN = toBinary(n)
+    var nCnt = binaryN.filter({$0 == "1"}).count
     while true {
-        if findOne(toBinary(answer)) == oneCnt {
+        if toBinary(answer).filter({$0 == "1"}).count == nCnt {
             break
         }
         else {
